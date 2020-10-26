@@ -40,3 +40,43 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+//Adding Nav text
+const nav = document.querySelectorAll("nav a");
+nav.forEach((item,ind) => item.textContent = siteContent["nav"][`nav-item-${ind +1}`]);
+
+//Updating CTA section
+const mainHeader = document.querySelector("h1");
+mainHeader.textContent = siteContent["cta"]["h1"];
+
+mainHeader.nextElementSibling.textContent = siteContent["cta"]["button"];
+
+document.querySelector("#cta-img").src = siteContent["cta"]["img-src"];
+
+//Updating .top-content
+
+const topC = document.querySelector(".top-content");
+
+topC.querySelector("h4").textContent = siteContent["main-content"]["features-h4"];
+
+topC.querySelector("p").textContent = siteContent["main-content"]["features-content"];
+
+topC.querySelector(".text-content").nextElementSibling.querySelector("h4").textContent = siteContent["main-content"]["about-h4"];
+
+topC.querySelector(".text-content").nextElementSibling.querySelector("p").textContent = siteContent["main-content"]["about-content"];
+
+//Middle image
+document.querySelector("#middle-img").src = siteContent["main-content"]["middle-img-src"];
+
+//Updating bottom content
+
+const bottomC = document.querySelector(".bottom-content");
+
+bottomC.querySelector("h4").textContent = siteContent["main-content"]["services-h4"];
+
+bottomC.querySelector("p").textContent = siteContent["main-content"]["services-content"];
+
+bottomC.querySelector("div:nth-child(2) h4").textContent = siteContent["main-content"]["product-h4"];
+
+bottomC.querySelector("div:nth-child(2) p").textContent = siteContent["main-content"]["product-content"];
+

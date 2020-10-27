@@ -47,7 +47,9 @@ nav.forEach((item,ind) => item.textContent = siteContent["nav"][`nav-item-${ind 
 
 //Updating CTA section
 const mainHeader = document.querySelector("h1");
-mainHeader.textContent = siteContent["cta"]["h1"];
+const headArr = siteContent["cta"]["h1"].split(" ");
+// console.log(headArr);
+mainHeader.innerText = `${headArr[0]}\n${headArr[1]}\n${headArr[2]}`;
 
 mainHeader.nextElementSibling.textContent = siteContent["cta"]["button"];
 
@@ -80,3 +82,45 @@ bottomC.querySelector("div:nth-child(2) h4").textContent = siteContent["main-con
 
 bottomC.querySelector("div:nth-child(2) p").textContent = siteContent["main-content"]["product-content"];
 
+bottomC.querySelector("div:nth-of-type(3) h4").textContent = siteContent["main-content"]["vision-h4"];
+
+bottomC.querySelector("div:nth-of-type(3) p").textContent = siteContent["main-content"]["vision-content"];
+
+
+//Updating contact section
+
+const contSect = document.querySelector(".contact");
+
+contSect.querySelector("h4").textContent = siteContent["contact"]["contact-h4"];
+
+const addArr = siteContent["contact"]["address"].split(" ");
+
+// console.log(addArr);
+
+contSect.querySelector("p").innerText = `${addArr[0]} ${addArr[1]} ${addArr[2]} ${addArr[3]}\n${addArr[4]} ${addArr[5]}`
+
+
+contSect.querySelector("p:nth-of-type(2)").textContent = siteContent["contact"]["phone"];
+
+contSect.querySelector("p:last-of-type").textContent = siteContent["contact"]["email"];
+
+//Updating Footer
+
+document.querySelector("footer p").textContent = siteContent["footer"]["copyright"];
+
+
+//Creating 2 new elements and then appending and prepending
+
+const blogLink = document.createElement("a");
+blogLink.textContent = "Blog";
+blogLink.setAttribute("href","#");
+document.querySelector("nav").appendChild(blogLink);
+
+const storeLink = document.createElement("a");
+storeLink.textContent= "Store";
+storeLink.href= "#";
+document.querySelector("nav").prepend(storeLink);
+
+//Updating nav text to green
+
+document.querySelectorAll("nav a").forEach(item => item.style.color = "green");
